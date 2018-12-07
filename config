@@ -1,0 +1,29 @@
+Host gerrit.internal.aws
+    User awong
+    ProxyCommand ssh -p7085 %r@us-east-1.ssh.thumbtack.com -W %h:29418
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa
+    ServerAliveInterval 60
+ 
+Host *.internal.aws
+    User awong
+    ProxyCommand ssh -p7085 %r@us-east-1.ssh.thumbtack.com -W %h:22
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa
+    ServerAliveInterval 60
+ 
+Host *.dev-internal
+    User awong
+    ProxyCommand ssh -p7085 %r@us-west-2.ssh.thumbtack.com -W %h:22
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa
+    ServerAliveInterval 60
+ 
+Host *.ssh.thumbtack.com
+    User awong
+    UseKeychain yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_rsa
